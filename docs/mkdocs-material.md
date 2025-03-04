@@ -237,7 +237,7 @@ theme:
 
 ---
 
-## Card grid: List syntax
+## Card grid: list syntax
 
 <div class="grid cards" markdown>
 
