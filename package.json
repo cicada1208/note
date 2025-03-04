@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "serve": "mkdocs serve --dev-addr localhost:8001 --open",
+    "build": "mkdocs build",
+    "deploy": "mkdocs gh-deploy --force",
+    "setup": "pip install ."
+  }
+}

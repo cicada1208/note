@@ -1,0 +1,10 @@
+[project]
+name = "note"
+version = "0.1.0"
+dependencies = [
+  "mkdocs-material",
+  "mkdocs-glightbox",
+  "mkdocs-table-reader-plugin",
+  "openpyxl",
+  "mkdocs-git-revision-date-localized-plugin"
+]

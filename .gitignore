@@ -1,0 +1,8 @@
+.cache
+
+# mkdocs build
+site/
+
+# pip install .
+*.egg-info/
+build/

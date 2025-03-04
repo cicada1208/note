@@ -1,0 +1,6 @@
+{
+  "MD007": { "indent": 4 }, // for MkDocs(Python Markdown)
+  "MD013": false,
+  "MD046": false,
+  "MD033": false
+}
