@@ -34,6 +34,6 @@ jobs:
         run: find site -type f -name "*.html" -exec staticrypt {} --password test --short -o {} \;
       - name: Deploy Encrypted Site to GitHub Pages
         run: |
-          git add site
-          git commit -m "Deploy encrypted site"
-          git push -f origin `git subtree split --prefix site main`:gh-pages
+          git subtree split --prefix site main -b temp-branch
+          git push -f origin temp-branch:gh-pages
+          git branch -D temp-branch
