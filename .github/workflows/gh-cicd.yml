@@ -30,11 +30,7 @@ jobs:
           npm install -g staticrypt
       - name: Build MkDocs Site
         run: mkdocs build
-      - name: List html
-        run: find site -type f -name "*.html"
-      - name: staticrypt version
-        run: staticrypt --version
       - name: Encrypt All HTML Files with StatiCrypt
         run: find site -type f -name "*.html" -exec staticrypt {} --password test --short -o {} \;
       - name: Deploy to GitHub Pages
-        run: mkdocs gh-deploy --force
+        run: mkdocs gh-deploy --config-file mkdocs.yml --remote-branch gh-pages --force --no-history
