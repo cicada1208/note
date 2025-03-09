@@ -33,6 +33,7 @@ jobs:
       - name: Encrypt All HTML Files With StatiCrypt
         run: |
           find site -type f -name "*.html" -exec staticrypt {} --password ${{ secrets.STATICRYPT_PASSWORD }} --short \;
+          ls -l site/encrypted/
           cp -rf site/encrypted/* site
       - name: Deploy Encrypted Site To GitHub Pages
         run: |
