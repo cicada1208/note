@@ -29,11 +29,12 @@ jobs:
           pip install .
           npm install -g staticrypt
       - name: Build MkDocs Site
-        run: mkdocs build
+        run: |
+          mkdocs build
+          cp .nojekyll site/.nojekyll
       - name: Encrypt All HTML Files With StatiCrypt
         run: |
           find site -type f -name "*.html" -exec staticrypt {} --password ${{ secrets.STATICRYPT_PASSWORD }} --short \;
-          ls -l encrypted/
           cp -rf encrypted/* site
       # - name: Deploy to GitHub Pages
       #   run: mkdocs gh-deploy --force
