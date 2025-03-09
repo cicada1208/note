@@ -35,7 +35,6 @@ jobs:
       - name: staticrypt version
         run: staticrypt --version
       - name: Encrypt All HTML Files with StatiCrypt
-        run: |
-          find site -type f -name "*.html" -exec staticrypt {} test --password test -o {} \;
+        run: find site -type f -name "*.html" -exec staticrypt {} --password test -o {} \;
       - name: Deploy to GitHub Pages
         run: mkdocs gh-deploy --force
