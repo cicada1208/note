@@ -24,24 +24,7 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - name: Install MkDocs And StatiCrypt
-        run: |
-          pip install .
-          npm install -g staticrypt
-      - name: Build MkDocs Site
-        run: |
-          mkdocs build
-          cp .nojekyll site/.nojekyll
-      - name: Encrypt All HTML Files With StatiCrypt
-        run: |
-          find site -type f -name "*.html" -exec staticrypt {} --password ${{ secrets.STATICRYPT_PASSWORD }} --short \;
-          cp -rf encrypted/* site
-      # - name: Deploy to GitHub Pages
-      #   run: mkdocs gh-deploy --force
-      - name: Deploy Encrypted Site To GitHub Pages
-        run: |
-          git add -f site
-          git commit -m "Deploy encrypted site"
-          git subtree split --prefix site main -b temp-branch
-          git push -f origin temp-branch:gh-pages
-          git branch -D temp-branch
+      - name: Install MkDocs
+        run: pip install .
+      - name: Deploy to GitHub Pages
+        run: mkdocs gh-deploy --force
