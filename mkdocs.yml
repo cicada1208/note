@@ -8,7 +8,7 @@ edit_uri: edit/main/docs/
 nav:
   - Home: index.md
   - Material for MkDocs: mkdocs-material.md
-  - Tags: tags.md
+  # - Tags: tags.md
 extra:
   social:
     - icon: fontawesome/brands/github
@@ -36,8 +36,8 @@ theme:
     - content.action.view
     - content.tabs.link
     - navigation.footer
-    # - navigation.instant
-    # - navigation.instant.progress
+    - navigation.instant
+    - navigation.instant.progress
     - navigation.indexes
     - navigation.top
     - search.suggest
