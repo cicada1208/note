@@ -1,7 +1,7 @@
 site_name: Note
 # if setting up site_url, don't use default --dev-addr of mkdocs serve.
 # e.g. change localhost:8000 to localhost:8001
-# site_url: https://cicada1208.github.io/note
+site_url: https://cicada1208.github.io/note
 repo_url: https://github.com/cicada1208/note
 repo_name: cicada1208/note
 edit_uri: edit/main/docs/
@@ -36,8 +36,8 @@ theme:
     - content.action.view
     - content.tabs.link
     - navigation.footer
-    - navigation.instant
-    - navigation.instant.progress
+    # - navigation.instant
+    # - navigation.instant.progress
     - navigation.indexes
     - navigation.top
     - search.suggest
