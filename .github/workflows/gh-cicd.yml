@@ -24,5 +24,14 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install .
-      - run: mkdocs gh-deploy --force
+      - name: Install MkDocs and StatiCrypt
+        run: |
+          pip install .
+          npm install -g staticrypt
+      - name: Build MkDocs Site
+        run: mkdocs build
+      - name: Encrypt All HTML Files with StatiCrypt
+        run: |
+          find site -type f -name "*.html" -exec staticrypt {} ${{ secrets.STATICRYPT_PASSWORD }} -o {} \;
+      - name: Deploy to GitHub Pages
+        run: mkdocs gh-deploy --force
