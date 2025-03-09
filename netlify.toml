@@ -1,9 +1,9 @@
 [build]
-  command = "pip install . && mkdocs build"
+  command = "pip install . --user && export PATH=$HOME/.local/bin:$PATH && mkdocs build"
   publish = "site"
 
 [build.environment]
-  PYTHON_VERSION = "3.13"
+  PYTHON_VERSION = "3.9"
 
 [[headers]]
   for = "/*"
