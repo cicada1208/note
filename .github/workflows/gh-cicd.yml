@@ -31,7 +31,7 @@ jobs:
       - name: Build MkDocs Site
         run: mkdocs build
       - name: Encrypt All HTML Files with StatiCrypt
-        run: find site -type f -name "*.html" -exec staticrypt {} --password test --short -o {} \;
+        run: find site -type f -name "*.html" -exec staticrypt {} --password ${{ secrets.STATICRYPT_PASSWORD }} --short -o {} \;
       - name: Deploy Encrypted Site to GitHub Pages
         run: |
           git add -f site
