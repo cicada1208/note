@@ -35,12 +35,12 @@ jobs:
           find site -type f -name "*.html" -exec staticrypt {} --password ${{ secrets.STATICRYPT_PASSWORD }} --short \;
           ls -l encrypted/
           cp -rf encrypted/* site
-      - name: Deploy to GitHub Pages
-        run: mkdocs gh-deploy --force
-      # - name: Deploy Encrypted Site To GitHub Pages
-      #   run: |
-      #     git add -f site
-      #     git commit -m "Deploy encrypted site"
-      #     git subtree split --prefix site main -b temp-branch
-      #     git push -f origin temp-branch:gh-pages
-      #     git branch -D temp-branch
+      # - name: Deploy to GitHub Pages
+      #   run: mkdocs gh-deploy --force
+      - name: Deploy Encrypted Site To GitHub Pages
+        run: |
+          git add -f site
+          git commit -m "Deploy encrypted site"
+          git subtree split --prefix site main -b temp-branch
+          git push -f origin temp-branch:gh-pages
+          git branch -D temp-branch
